@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mercearia do Seu Zé: há mais de 40 anos no Centro Histórico de Curitiba, com café moído na hora, produtos coloniais, hortifruti, frios e embutidos.">
+  <meta name="theme-color" content="#233d2a">
+  <title>Mercearia do Seu Zé | Tradição no Centro de Curitiba</title>
+
+  <style>
+    :root {
+      --verde: #233d2a;
+      --verde-2: #365a3f;
+      --oliva: #69724a;
+      --marrom: #563a29;
+      --marrom-2: #704b34;
+      --bege: #f4eddf;
+      --creme: #fbf8f1;
+      --dourado: #c89d58;
+      --texto: #2a2723;
+      --muted: #625b51;
+      --borda: #dfd5c3;
+      --branco: #fff;
+      --sombra: 0 12px 30px rgba(44, 38, 31, .10);
+      --raio: 16px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--texto);
+      background: var(--creme);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--dourado);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .topo {
+      background: var(--creme);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .barra-topo {
+      min-height: 88px;
+      display: grid;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .marca-icone {
+      width: 54px;
+      height: 54px;
+      flex: 0 0 54px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--verde);
+      border-radius: 12px 12px 8px 8px;
+      font-size: 27px;
+      background: #efe7d7;
+    }
+
+    .marca strong {
+      display: block;
+      color: var(--texto);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      line-height: 1.05;
+    }
+
+    .marca span {
+      display: block;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      margin-top: 3px;
+      font-size: .9rem;
+    }
+
+    .contatos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      justify-content: flex-start;
+      font-size: .92rem;
+    }
+
+    .contato-item {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .contato-item span {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .redes-topo {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .rede-icone {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--borda);
+      border-radius: 50%;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: .82rem;
+    }
+
+    .rede-legenda {
+      font-size: .76rem;
+      color: var(--muted);
+      max-width: 88px;
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 480px;
+      display: grid;
+      align-items: stretch;
+      background:
+        linear-gradient(90deg, rgba(27,19,14,.88), rgba(27,19,14,.58) 55%, rgba(27,19,14,.18)),
+        linear-gradient(140deg, #4a3121, #8a603d 55%, #34281f);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "☕";
+      position: absolute;
+      right: 5%;
+      bottom: -18%;
+      font-size: clamp(12rem, 30vw, 24rem);
+      opacity: .11;
+      filter: grayscale(1);
+    }
+
+    .hero .container {
+      width: min(var(--max), calc(100% - 32px));
+      display: grid;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      color: var(--branco);
+      padding: 54px 0 66px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .78rem;
+      font-weight: 800;
+      color: #e7d4b6;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.12;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5.1rem);
+      max-width: 10ch;
+    }
+
+    .hero-copy p {
+      max-width: 58ch;
+      margin: 18px 0 0;
+      font-size: 1.05rem;
+      color: #f8efe3;
+    }
+
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: .75rem 1rem;
+      border-radius: 9px;
+      font-weight: 800;
+      text-decoration: none;
+      border: 0;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .botao:hover {
+      transform: translateY(-2px);
+      opacity: .95;
+    }
+
+    .botao-verde {
+      background: var(--verde-2);
+      color: var(--branco);
+    }
+
+    .botao-contorno {
+      background: transparent;
+      color: var(--branco);
+      border: 1px solid rgba(255,255,255,.55);
+    }
+
+    .hero-acoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    section {
+      padding: 68px 0;
+    }
+
+    .secao-titulo {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+    }
+
+    .secao-titulo h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .secao-titulo p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .produtos {
+      background: var(--creme);
+    }
+
+    .produtos-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card-produto,
+    .card-promocao {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: var(--raio);
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(43, 36, 28, .06);
+    }
+
+    .foto {
+      min-height: 150px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      color: var(--branco);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 16px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Estas áreas foram desenhadas para receber fotos reais da loja posteriormente. */
+    .foto-coloniais { background: linear-gradient(135deg, #a77c4a, #5f462e); }
+    .foto-hortifruti { background: linear-gradient(135deg, #5b7438, #9a8a42); }
+    .foto-cafe { background: linear-gradient(135deg, #36251c, #79543b); }
+    .foto-frios { background: linear-gradient(135deg, #a4705c, #6d3f35); }
+
+    .foto::before {
+      content: "";
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.55);
+      position: absolute;
+    }
+
+    .foto span {
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 7px rgba(0,0,0,.5);
+    }
+
+    .conteudo-card {
+      padding: 17px;
+    }
+
+    .conteudo-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+    }
+
+    .conteudo-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .card-promocao {
+      background: #f3dfad;
+      border-color: #e4c37e;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .promocao-topo {
+      background: var(--marrom);
+      color: var(--branco);
+      padding: 12px 16px;
+      text-align: center;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .promocao-corpo {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px 18px;
+    }
+
+    .promocao-produto {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      margin: 0 0 4px;
+    }
+
+    .preco {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #9c2c20;
+      margin: 6px 0;
+    }
+
+    .preco-antigo {
+      margin: 0;
+      color: #75624b;
+      text-decoration: line-through;
+      font-size: .9rem;
+    }
+
+    .diferenciais {
+      background: var(--bege);
+      border-top: 1px solid var(--borda);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .diferenciais-grid {
+      display: grid;
+      gap: 0;
+    }
+
+    .diferencial {
+      text-align: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .diferencial:last-child {
+      border-bottom: 0;
+    }
+
+    .diferencial-icone {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .diferencial h3 {
+      margin: 0 0 4px;
+      font-size: 1.2rem;
+    }
+
+    .diferencial p {
+      color: var(--muted);
+      margin: 0;
+      font-size: .9rem;
+    }
+
+    .visita-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .endereco {
+      padding: 6px 0;
+    }
+
+    .info-bloco {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      margin: 0 0 22px;
+    }
+
+    .info-icone {
+      width: 38px;
+      min-width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      background: var(--bege);
+      border-radius: 10px;
+      font-size: 1.25rem;
+    }
+
+    .info-bloco strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .info-bloco p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .mapa {
+      min-height: 310px;
+      background:
+        linear-gradient(135deg, #e8e4db 25%, transparent 25%) -15px 0/60px 60px,
+        linear-gradient(45deg, #e1ddd2 25%, transparent 25%) 0 0/70px 70px,
+        #f5f2eb;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+    }
+
+    .mapa::before,
+    .mapa::after {
+      content: "";
+      position: absolute;
+      background: rgba(117, 127, 105, .35);
+    }
+
+    .mapa::before {
+      width: 140%;
+      height: 3px;
+      transform: rotate(-19deg);
+    }
+
+    .mapa::after {
+      width: 3px;
+      height: 130%;
+      transform: rotate(22deg);
+    }
+
+    .pin {
+      position: relative;
+      z-index: 2;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      background: var(--marrom-2);
+      color: var(--branco);
+      font-size: 1.55rem;
+      box-shadow: 0 8px 18px rgba(75, 48, 34, .25);
+    }
+
+    .pin span { transform: rotate(45deg); }
+
+    .mapa-legenda {
+      position: absolute;
+      z-index: 3;
+      top: 18px;
+      left: 18px;
+      right: 18px;
+      background: rgba(255,255,255,.94);
+      padding: 10px 12px;
+      border-radius: 9px;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 5px 14px rgba(0,0,0,.08);
+    }
+
+    .mapa a {
+      position: absolute;
+      z-index: 3;
+      bottom: 18px;
+      background: var(--verde);
+      color: var(--branco);
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .aviso {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 7px;
+      background: #fff3cd;
+      color: #5b4800;
+      font-size: .78rem;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+
+    .convite {
+      background:
+        linear-gradient(rgba(50, 33, 24, .88), rgba(50, 33, 24, .88)),
+        linear-gradient(135deg, #73513a, #35271e);
+      color: var(--branco);
+      border-radius: var(--raio);
+      padding: 42px 26px;
+      text-align: center;
+      box-shadow: var(--sombra);
+    }
+
+    .convite h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .convite p {
+      max-width: 580px;
+      margin: 0 auto;
+      color: #f4e7d8;
+    }
+
+    .convite .botao {
+      margin-top: 22px;
+    }
+
+    footer {
+      background: var(--verde);
+      color: #eaf1e8;
+      padding: 28px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .footer-marca {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .footer-linha {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      align-items: center;
+    }
+
+    footer a {
+      text-decoration: none;
+    }
+
+    .footer-rede {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .ficticio {
+      color: #bbc9bc;
+      font-size: .76rem;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.18);
+      margin-top: 8px;
+      padding-top: 15px;
+      color: #c9d4ca;
+      font-size: .85rem;
+    }
+
+    @media (min-width: 700px) {
+      .barra-topo {
+        grid-template-columns: minmax(260px, 1fr) auto auto;
+      }
+
+      .contatos {
+        justify-content: center;
+      }
+
+      .redes-topo {
+        margin-left: 0;
+      }
+
+      .produtos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .diferenciais-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .diferencial {
+        border-bottom: 0;
+        border-right: 1px solid var(--borda);
+      }
+
+      .diferencial:last-child {
+        border-right: 0;
+      }
+
+      .visita-grid {
+        grid-template-columns: .95fr 1.05fr;
+        align-items: stretch;
+      }
+
+      .mapa {
+        min-height: 340px;
+      }
+
+      .convite {
+        padding: 52px;
+      }
+    }
+
+    @media (min-width: 1050px) {
+      .produtos-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .copyright {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .botao { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topo">
+    <div class="container barra-topo">
+      <a class="marca" href="#inicio" aria-label="Ir para o início">
+        <span class="marca-icone" aria-hidden="true">🏪</span>
+        <span>
+          <strong>Mercearia do Seu Zé</strong>
+          <span>Tradição de família, do nosso balcão pra sua mesa.</span>
+        </span>
+      </a>
+
+      <!-- PLACEHOLDER: substituir o telefone pelo número REAL. -->
+      <div class="contatos" aria-label="Informações de contato">
+        <a class="contato-item" href="tel:+554133334444">
+          ☎️ <span>Telefone fixo<br><strong>(41) 3333-4444</strong></span>
+        </a>
+        <!-- PLACEHOLDER: substituir o WhatsApp pelo número REAL no link wa.me. -->
+        <a class="contato-item" href="https://wa.me/554133334444" target="_blank" rel="noopener noreferrer">
+          💬 <span>WhatsApp<br><strong>(41) 3333-4444</strong></span>
+        </a>
+      </div>
+
+      <div class="redes-topo" aria-label="Redes sociais">
+        <!-- LINKS FICTÍCIOS: a mercearia ainda não possui contas oficiais. -->
+        <a class="rede-icone" href="#" aria-label="Instagram fictício">◎</a>
+        <a class="rede-icone" href="#" aria-label="Facebook fictício">f</a>
+        <span class="rede-legenda">Siga a gente<br><strong>(redes sociais fictícias)</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="container">
+        <div class="hero-copy">
+          <p class="eyebrow">Há mais de 40 anos no Centro de Curitiba</p>
+          <h1 id="titulo-hero">Mais de 40 anos de boas histórias no Centro de Curitiba</h1>
+          <p>
+            Aqui você encontra café moído na hora, produtos coloniais do interior
+            do Paraná, variedade e o atendimento de sempre. Porque tradição também é qualidade.
+          </p>
+          <div class="hero-acoes">
+            <a class="botao botao-verde" href="#produtos">Conheça nossos produtos</a>
+            <a class="botao botao-contorno" href="#visite">Visite a loja</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="produtos" id="produtos" aria-labelledby="titulo-produtos">
+      <div class="container">
+        <div class="secao-titulo">
+          <p class="eyebrow" style="color: var(--oliva);">Tem sempre alguma coisa boa no balcão</p>
+          <h2 id="titulo-produtos">Nossos produtos</h2>
+          <p>Uma seleção de itens para a compra do dia a dia, com aquele jeito de mercearia de bairro.</p>
+        </div>
+
+        <div class="produtos-grid">
+          <article class="card-produto">
+            <div class="foto foto-coloniais" role="img" aria-label="Espaço reservado para foto de produtos coloniais">
+              <span>Produtos coloniais</span>
+            </div>
+            <div class="conteudo-card">
+              <h3>Produtos Coloniais</h3>
+              <ul>
+                <li>Queijos</li>
+                <li>Doces</li>
+                <li>Conservas</li>
+                <li>Produtos do interior do Paraná</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card-produto">
+            <div class="foto foto-hortifruti" role="img" aria-label="Espaço reservado para foto do hortifruti">
+              <span>Hortifruti fresquinho</span>
+            </div>
+            <div class="conteudo-card">
+              <h3>Hortifruti</h3>
+              <ul>
+                <li>Frutas</li>
+                <li>Verduras</li>
+                <li>Legumes</li>
+                <li>Itens para a compra do dia</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card-produto">
+            <div class="foto foto-cafe" role="img" aria-label="Espaço reservado para foto de café em grãos">
+              <span>Café moído na hora</span>
+            </div>
+            <div class="conteudo-card">
+              <h3>Café</h3>
+              <ul>
+                <li>Café moído na hora</li>
+                <li>Grãos selecionados</li>
+                <li>Diversas marcas</li>
+                <li>Para passar e levar para casa</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card-produto">
+            <div class="foto foto-frios" role="img" aria-label="Espaço reservado para foto de frios e embutidos">
+              <span>Frios e embutidos</span>
+            </div>
+            <div class="conteudo-card">
+              <h3>Frios e Embutidos</h3>
+              <ul>
+                <li>Presunto</li>
+                <li>Queijos</li>
+                <li>Salames</li>
+                <li>Linguiças e outros</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card-promocao" aria-label="Promoção da semana">
+            <div class="promocao-topo">PROMOÇÃO DA SEMANA</div>
+            <div class="promocao-corpo">
+              <div>
+                <div style="font-size: 3.2rem; margin-bottom: 8px;" aria-hidden="true">🧀</div>
+                <p class="promocao-produto">Queijo Colonial</p>
+                <p class="preco">R$ 29,90/kg</p>
+                <p class="preco-antigo">R$ 36,90/kg</p>
+                <p style="margin: 12px 0 0; font-size: .8rem; color: #6a573c;">Valor ilustrativo — atualizar antes da publicação.</p>
+                <a class="botao botao-verde" href="https://wa.me/554133334444" target="_blank" rel="noopener noreferrer" style="margin-top: 14px;">Aproveite!</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="diferenciais" aria-labelledby="titulo-diferenciais">
+      <div class="container">
+        <div class="secao-titulo">
+          <p class="eyebrow" style="color: var(--oliva);">O que faz a gente ser diferente</p>
+          <h2 id="titulo-diferenciais">Um pouco do que você encontra por aqui</h2>
+        </div>
+
+        <div class="diferenciais-grid">
+          <article class="diferencial">
+            <span class="diferencial-icone" aria-hidden="true">☕</span>
+            <h3>Tradição</h3>
+            <p>Mais de 40 anos no mesmo endereço.</p>
+          </article>
+          <article class="diferencial">
+            <span class="diferencial-icone" aria-hidden="true">🏅</span>
+            <h3>Qualidade</h3>
+            <p>Produtos selecionados e de confiança.</p>
+          </article>
+          <article class="diferencial">
+            <span class="diferencial-icone" aria-hidden="true">📍</span>
+            <h3>Localização privilegiada</h3>
+            <p>A poucos passos do Calçadão da XV de Novembro.</p>
+          </article>
+          <article class="diferencial">
+            <span class="diferencial-icone" aria-hidden="true">👥</span>
+            <h3>Atendimento de verdade</h3>
+            <p>Aqui você é sempre bem-vindo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="visite" aria-labelledby="titulo-visite">
+      <div class="container">
+        <div class="secao-titulo">
+          <p class="eyebrow" style="color: var(--oliva);">Passe para tomar um café</p>
+          <h2 id="titulo-visite">Onde estamos</h2>
+        </div>
+
+        <div class="visita-grid">
+          <article class="endereco">
+            <div class="info-bloco">
+              <span class="info-icone" aria-hidden="true">📍</span>
+              <div>
+                <strong>Endereço</strong>
+                <!-- PLACEHOLDER: substituir pelo endereço REAL. -->
+                <p>Rua XV de Novembro, 1234<br>Centro Histórico, Curitiba – PR<br>(Próximo ao Calçadão da XV de Novembro)</p>
+                <span class="aviso">Endereço ilustrativo — confirmar com o cliente.</span>
+              </div>
+            </div>
+
+            <div class="info-bloco">
+              <span class="info-icone" aria-hidden="true">🕘</span>
+              <div>
+                <strong>Horário de funcionamento</strong>
+                <!-- PLACEHOLDER: confirmar horários reais. -->
+                <p>Segunda a sábado: 7h às 19h<br>Domingo: 7h às 12h</p>
+                <span class="aviso">Horário provisório — confirmar com o cliente.</span>
+              </div>
+            </div>
+          </article>
+
+          <figure class="mapa" aria-labelledby="mapa-titulo">
+            <div class="mapa-legenda" id="mapa-titulo">📍 Mercearia do Seu Zé</div>
+            <div class="pin" aria-hidden="true"><span>●</span></div>
+            <!-- PLACEHOLDER: substituir o href por um link real do Google Maps após confirmar o endereço. -->
+            <a href="https://www.google.com/maps/search/?api=1&query=Rua+XV+de+Novembro+1234+Curitiba+PR" target="_blank" rel="noopener noreferrer">
+              Ver no Google Maps
+            </a>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="titulo-convite">
+      <div class="container">
+        <article class="convite">
+          <p class="eyebrow">Do nosso balcão para a sua mesa</p>
+          <h2 id="titulo-convite">Venha nos visitar!</h2>
+          <p>
+            Seja para o café da manhã, para o almoço ou para levar um produto especial
+            para casa, sempre será um prazer te atender.
+          </p>
+          <!-- PLACEHOLDER: atualizar o número real do WhatsApp. -->
+          <a class="botao botao-verde" href="https://wa.me/554133334444" target="_blank" rel="noopener noreferrer">
+            💬 Fale conosco no WhatsApp
+          </a>
+          <p style="margin-top: 10px; font-weight: 700;">(41) 3333-4444</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-marca">© 2026 Mercearia do Seu Zé. Todos os direitos reservados.</div>
+        <div class="footer-linha" style="margin-top: 8px;">
+          <span>Fale com a gente</span>
+          <!-- LINKS FICTÍCIOS DE REDES SOCIAIS. -->
+          <a class="footer-rede" href="#" aria-label="Instagram fictício">◎ Instagram</a>
+          <a class="footer-rede" href="#" aria-label="Facebook fictício">f Facebook</a>
+        </div>
+        <div class="ficticio" style="margin-top: 7px;">Instagram e Facebook acima são links ilustrativos e ainda não são contas oficiais.</div>
+      </div>
+
+      <div class="footer-linha">
+        <a href="#produtos">Produtos</a>
+        <a href="#visite">Localização</a>
+        <a href="#inicio">Voltar ao topo ↑</a>
+      </div>
+
+      <div class="copyright">
+        Projeto de presença digital — estrutura simples, responsiva e sem dependências pagas.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
